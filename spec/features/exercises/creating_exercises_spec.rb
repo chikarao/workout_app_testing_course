@@ -34,8 +34,8 @@ RSpec.feature "Creating exercises" do
 
     expect(page).to have_content("Exercise has not been created")
     expect(page).to have_content("Duration in min is not a number")
-    expect(page).to have_content("Workout can't be blank")
-    expect(page).to have_content("Workout date can't be blank")
+    expect(page).to have_content("Workout details can't be blank")
+    expect(page).to have_content("Activity date can't be blank")
 
     # exercise = Exercise.last
     # expect(current_path).to eq(user_exercise_path(@john, exercise))
