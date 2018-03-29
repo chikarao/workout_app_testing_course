@@ -8,4 +8,5 @@ class Exercise < ApplicationRecord
   # validates_numericality_of :duration_in_min, only_integer: true
   validates :duration_in_min, numericality: { greater_than: 0.0 }
 
+  default_scope { where('workout_date > ?', 7.days.ago).order(workout_date: :desc)}
 end
