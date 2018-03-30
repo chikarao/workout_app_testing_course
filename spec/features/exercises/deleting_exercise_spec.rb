@@ -23,5 +23,4 @@ RSpec.feature "Deleting Exercise" do
 
     expect(page).to have_content("Exercise has been deleted")
   end
-
 end
