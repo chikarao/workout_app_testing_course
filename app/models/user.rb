@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :exercises
+  has_many :friendships
+  has_many :friends, through: :friendships, class_name: "User"
+  # friends is an alias for user
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -29,4 +32,10 @@ class User < ApplicationRecord
         "%#{names_array[1]}%").order(:first_name)
     end
   end
+
+  def follows_or_same?(new_friend)
+    # friendships gives us array of all friends of user
+    friendships.map(&:friend).include?(new_friend) || self == new_friend
+  end
+
 end
