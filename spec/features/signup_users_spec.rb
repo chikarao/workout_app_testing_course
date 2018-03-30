@@ -4,6 +4,8 @@ RSpec.feature "Sign up Users" do
   scenario "With valid credentials" do
     visit "/"
     click_link "Sign up"
+    fill_in "First name", with: "John"
+    fill_in "Last name", with: "Doe"
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
@@ -12,6 +14,8 @@ RSpec.feature "Sign up Users" do
     expect(page).to have_content("Welcome! You have signed up successfully.")
     # expect().to eq 200
     # expect(path). to eq(path)
+    visit "/"
+    expect(page).to have_content("John Doe")
   end
   # context "User does not supply required credentials" do
   #   visit "/"
