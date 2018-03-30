@@ -36,4 +36,5 @@ RSpec.feature "Sign up Users" do
    expect(page).to have_content("First name can't be blank")
    expect(page).to have_content("Last name can't be blank")
  end
+ 
 end
