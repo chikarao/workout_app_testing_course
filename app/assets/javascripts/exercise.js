@@ -4,7 +4,7 @@ $(document).ready(function(){
   });
 
 // calling d3 code
-//regex for path name like users/1/exercises
+//regex for path name like users/1/exercises or friendships/1
 var regex = /\/users\/\d+\/exercises$|\/friendships\/d+$/i;
 
 if($(location).attr('pathname').match(regex)) {
