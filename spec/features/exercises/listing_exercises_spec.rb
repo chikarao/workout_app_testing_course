@@ -62,5 +62,4 @@ RSpec.feature "Listing Exercises" do
     expect(page).to have_link(@sarah.full_name)
     expect(page).to have_link("Unfollow")
   end
-  
 end

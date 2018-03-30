@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :exercises
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships, class_name: "User"
+  # has_many :friends, through: :friendships, source: :friend
   # friends is an alias for user
 
   validates :first_name, presence: true
@@ -15,8 +16,8 @@ class User < ApplicationRecord
   self.per_page = 10
 
   def full_name
-    # "#{first_name} #{last_name}"
-    [first_name, last_name].join(" ")
+    "#{first_name} #{last_name}"
+    # [first_name, last_name].join(" ")
   end
 
   def self.search_by_name(name)
